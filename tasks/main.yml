@@ -1,7 +1,8 @@
 ---
-- ansible.builtin.include_role:
+- name: Install unarchivedeps
+  ansible.builtin.include_role:
     name: andrewrothstein.unarchivedeps
-- name: resolve platform specific vars
+- name: Resolve platform specific vars
   ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
     - files:
@@ -17,7 +18,8 @@
     path: '{{ opentofu_exe }}'
   changed_when: false
   register: opentofu_binary
-- when: not opentofu_binary.stat.exists
+- name: Downloading and unarchiving opentofu
+  when: not opentofu_binary.stat.exists
   block:
     - name: Downloading {{ opentofu_url }}
       become: true
@@ -53,6 +55,6 @@
   become: true
   become_user: root
   ansible.builtin.file:
-    src: '{{ opentofu_exe}}'
+    src: '{{ opentofu_exe }}'
     dest: '{{ opentofu_link }}'
     state: link
