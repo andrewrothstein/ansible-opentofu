@@ -1,0 +1,14 @@
+---
+- name: Testing andrewrothstein.opentofu role
+  hosts: all
+  tasks:
+    - name: Installing andrewrothstein.opentofu
+      ansible.builtin.include_role:
+        name: '{{ playbook_dir }}'
+    - name: Executing 'tofu --version'
+      ansible.builtin.command: tofu --version
+      changed_when: false
+      register: opentofu_test_output
+    - name: Output from 'tofu --version'
+      ansible.builtin.debug:
+        msg: '{{ opentofu_test_output.stdout }}'

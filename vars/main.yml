@@ -1,0 +1,13 @@
+---
+# vars file for opentofu
+opentofu_os: '{{ ansible_system | lower }}'
+opentofu_arch: '{{ opentofu_arch_map[ansible_architecture] }}'
+opentofu_platform: '{{ opentofu_os }}_{{ opentofu_arch }}'
+opentofu_prefix: tofu_{{ opentofu_ver }}_{{ opentofu_platform }}
+opentofu_archive: '{{ opentofu_prefix }}.{{ opentofu_archive_type | default("zip") }}'
+opentofu_tmp_archive: '{{ opentofu_tmp_dir | default("/tmp") }}/{{ opentofu_archive }}'
+opentofu_url: '{{ opentofu_mirror }}/v{{ opentofu_ver }}/{{ opentofu_archive }}'
+opentofu_checksum: '{{ opentofu_checksums[opentofu_ver][opentofu_platform] }}'
+opentofu_install_dir: '{{ opentofu_parent_install_dir }}/{{ opentofu_prefix }}'
+opentofu_exe: '{{ opentofu_install_dir }}/tofu{{ opentofu_dotexe | default("") }}'
+opentofu_link: '{{ opentofu_parent_install_dir }}/bin/tofu'
