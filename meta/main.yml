@@ -1,11 +1,12 @@
 ---
 galaxy_info:
-  author: 'Andrew Rothstein'
-  description: '@TODO document opentofu goes here'
-  company: 'BlackRock'
+  author: Andrew Rothstein
+  company: BlackRock
+  description: installs the opentofu tofu cli
   galaxy_tags: []
   license: MIT
-  min_ansible_version: 1.2
+  min_ansible_version: '1.2'
+  namespace: andrewrothstein
   platforms:
     - name: Alpine
       versions:
@@ -29,4 +30,4 @@ galaxy_info:
       versions:
         - focal
         - jammy
-  role_name: 'opentofu'
+  role_name: opentofu
