@@ -1,5 +1,5 @@
 ---
-opentofu_ver: 1.8.3
+opentofu_ver: 1.8.4
 opentofu_mirror: https://github.com/opentofu/opentofu/releases/download
 opentofu_arch_map:
   aarch64: arm64
@@ -278,3 +278,33 @@ opentofu_checksums:
     windows_386: sha256:5b16649ef4fc24177d216c24f2f497dd7be025f312dcb036376387bfd24c2a9d
     # https://github.com/opentofu/opentofu/releases/download/v1.8.3/tofu_1.8.3_windows_amd64.zip
     windows_amd64: sha256:729d7c40641f80d879fa5be2c8eb62a1a1d368e988a8fca92a4cf289200ea06b
+  # https://github.com/opentofu/opentofu/releases/download/v1.8.4/tofu_1.8.4_SHA256SUMS
+  '1.8.4':
+    # https://github.com/opentofu/opentofu/releases/download/v1.8.4/tofu_1.8.4_darwin_amd64.zip
+    darwin_amd64: sha256:e4c5374f1929791db35b22c1ac78f6aac27cdfd88fe5988f06471c7cbaf36367
+    # https://github.com/opentofu/opentofu/releases/download/v1.8.4/tofu_1.8.4_darwin_arm64.zip
+    darwin_arm64: sha256:e19c89062e793e3f8b602ba436172631e72758f11ed1db29fe854cfbe4b11633
+    # https://github.com/opentofu/opentofu/releases/download/v1.8.4/tofu_1.8.4_freebsd_arm.zip
+    freebsd_arm: sha256:10b5f44934479ae98ac59f039381d392190b80d63116e8323d7c1aa1651d46bb
+    # https://github.com/opentofu/opentofu/releases/download/v1.8.4/tofu_1.8.4_freebsd_386.zip
+    freebsd_386: sha256:8f05e91b7879b0de7a2a8287bf55468438d00e1c4ebbe88133df268c5c1a6089
+    # https://github.com/opentofu/opentofu/releases/download/v1.8.4/tofu_1.8.4_freebsd_amd64.zip
+    freebsd_amd64: sha256:78cc544c3866f61486553b786fdc510b4fd41914fff87c870c2928f45fb3cbaf
+    # https://github.com/opentofu/opentofu/releases/download/v1.8.4/tofu_1.8.4_linux_386.zip
+    linux_386: sha256:0e107ea214e7524fe3f5082de07d5a7a1ad0358f9c19020eae9a3bd4934e6bcd
+    # https://github.com/opentofu/opentofu/releases/download/v1.8.4/tofu_1.8.4_linux_amd64.zip
+    linux_amd64: sha256:1f4404a87e1521eb37cb39f993fa488b4d93c8e08420b39e7d29e0b7490e90c4
+    # https://github.com/opentofu/opentofu/releases/download/v1.8.4/tofu_1.8.4_linux_arm.zip
+    linux_arm: sha256:9e5794ac207c08fb52e7b5f0ee524dd35763bb5fee972333615d42dcde1f1d22
+    # https://github.com/opentofu/opentofu/releases/download/v1.8.4/tofu_1.8.4_linux_arm64.zip
+    linux_arm64: sha256:6a6923932746cba1d44f6f6b37be147a282afb02f831729c0796ac1cd0418553
+    # https://github.com/opentofu/opentofu/releases/download/v1.8.4/tofu_1.8.4_openbsd_386.zip
+    openbsd_386: sha256:a822c3c09105a39cb4fe2ef383d9432ea78fb3d471d3ed61cebf511bc86aee26
+    # https://github.com/opentofu/opentofu/releases/download/v1.8.4/tofu_1.8.4_openbsd_amd64.zip
+    openbsd_amd64: sha256:ad99f0c009469b363d801fbec63898834104cdc93b539196f3e773c1efed9098
+    # https://github.com/opentofu/opentofu/releases/download/v1.8.4/tofu_1.8.4_solaris_amd64.zip
+    solaris_amd64: sha256:6f98622c85b87947ba9dfb0c6f234d35fd51a483ff788814626b5aa61c605684
+    # https://github.com/opentofu/opentofu/releases/download/v1.8.4/tofu_1.8.4_windows_386.zip
+    windows_386: sha256:b995c15bd1a569ff6c44ef432e1b65e00a6a1c3bf3149b74e82523761caf9dfd
+    # https://github.com/opentofu/opentofu/releases/download/v1.8.4/tofu_1.8.4_windows_amd64.zip
+    windows_amd64: sha256:ca51255bd938e7c52ff10a044cbc5ef4d7f7013b7b3efcdafaf7fa05f48be916
