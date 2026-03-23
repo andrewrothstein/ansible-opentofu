@@ -1,7 +1,7 @@
 ---
 # vars file for opentofu
-opentofu_os: '{{ ansible_system | lower }}'
-opentofu_arch: '{{ opentofu_arch_map[ansible_architecture] }}'
+opentofu_os: '{{ ansible_facts["system"] | lower }}'
+opentofu_arch: '{{ opentofu_arch_map[ansible_facts["architecture"]] }}'
 opentofu_platform: '{{ opentofu_os }}_{{ opentofu_arch }}'
 opentofu_prefix: tofu_{{ opentofu_ver }}_{{ opentofu_platform }}
 opentofu_archive: '{{ opentofu_prefix }}.{{ opentofu_archive_type | default("zip") }}'
