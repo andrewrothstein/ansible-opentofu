@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 set -e
-DIR=~/Downloads
+DIR=$(mktemp -d)
+trap 'rm -rf "$DIR"' EXIT
 MIRROR="https://github.com/opentofu/opentofu/releases/download"
 
 dl() {
@@ -13,8 +14,20 @@ dl() {
     local file="tofu_${ver}_${platform}.${archive_type}"
     # https://github.com/opentofu/opentofu/releases/download/v1.6.0/tofu_1.6.0_linux_amd64.zip
     local url=$MIRROR/v$ver/$file
-    printf "    # %s\n" $url
-    printf "    %s: sha256:%s\n" $platform $(grep -e "$file\$" $lchecksums | awk '{print $1}')
+    local sum
+    sum=$(awk -v f="$file" '$2 == f || $2 == "*" f {print $1}' "$lchecksums")
+    # openbsd_386 stopped being published in 1.12.12; older versions still have it
+    if [ -z "$sum" ] && [ "$platform" = "openbsd_386" ]
+    then
+        return 0
+    fi
+    if ! printf '%s' "$sum" | grep -Eq '^[0-9a-f]{64}$'
+    then
+        echo "bad or missing checksum for $file: '$sum'" >&2
+        exit 1
+    fi
+    printf "    # %s\n" "$url"
+    printf "    %s: sha256:%s\n" "$platform" "$sum"
 }
 
 dl_ver() {
@@ -25,10 +38,7 @@ dl_ver() {
     local url=$MIRROR/v$ver/$checksums
 
     local lchecksums=$DIR/$checksums
-    if [ ! -e $lchecksums ];
-    then
-        curl -sSLf -o $lchecksums $url
-    fi
+    curl -fsSL --proto '=https' --tlsv1.2 -o "$lchecksums" "$url"
 
     printf "  # %s\n" $url
     printf "  '%s':\n" $ver
@@ -49,4 +59,4 @@ dl_ver() {
     dl $ver $lchecksums windows amd64
 }
 
-dl_ver ${1:-1.11.5}
+dl_ver ${1:-1.13.9}
